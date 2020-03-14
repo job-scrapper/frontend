@@ -2,12 +2,15 @@
     "env": {
         "browser": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": [
         "plugin:prettier/recommended",
         "plugin:react/recommended",
-        "airbnb"
+        "airbnb",
+        "plugin:import/typescript",
+        "prettier"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -26,5 +29,9 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "react/jsx-one-expression-per-line": "off",
+        "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+        "import/extensions": ["error", "never"],
+        "arrow-parens": ["error", "as-needed"]
     }
 }
