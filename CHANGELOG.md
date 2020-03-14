@@ -1,6 +1,13 @@
 # CHANGELOG
 
+## 0.2.0 2020-03-14
+
+- eslint, prettier 설정
+- workbox 설정
+- favicon 및 manifest 파일 설정
+
 ## 0.1.0 2020-03-14
+
 - 프로젝트 생성
 
 ## How To Write it

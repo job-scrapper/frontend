@@ -1,0 +1,37 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true,
+        "jest": true
+    },
+    "extends": [
+        "plugin:prettier/recommended",
+        "plugin:react/recommended",
+        "airbnb",
+        "plugin:import/typescript",
+        "prettier"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "react/jsx-one-expression-per-line": "off",
+        "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+        "import/extensions": ["error", "never"],
+        "arrow-parens": ["error", "as-needed"]
+    }
+}
