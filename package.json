@@ -21,7 +21,7 @@
       "yarn prettier",
       "yarn eslint"
     ],
-    "*.{json,md}": [
+    "*.{json,md,yml}": [
       "yarn prettier"
     ]
   },

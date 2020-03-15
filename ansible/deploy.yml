@@ -11,7 +11,7 @@
       git:
         repo: git@github.com:job-scrapper/frontend.git
         dest: /home/some/job-scrapper/frontend
-        version: "{{ git_branch }}"
+        version: '{{ git_branch }}'
       register: output_commits
     - name: Display commit info
       debug:
@@ -19,26 +19,26 @@
     - name: Write dotenv
       shell: |
         echo 'GENERATE_SOURCEMAP=false
-        INLINE_RUNTIME_CHUNK=false' >> /home/some/job-scrapper/frontend/.env
+        INLINE_RUNTIME_CHUNK=false' > /home/some/job-scrapper/frontend/.env
     - name: build new image
       become: true
       docker_image:
         name: job-frontend
-        tag: "{{ output_commits.after[:7] }}"
+        tag: '{{ output_commits.after[:7] }}'
         build:
           path: /home/some/job-scrapper/frontend
         source: build
     - name: Remove old container
       become: true
       docker_container:
-        name: "{{ output_commits.before[:7] }}"
+        name: '{{ output_commits.before[:7] }}'
         state: absent
     - name: Run new container
       become: true
       docker_container:
-        name: "{{ output_commits.after[:7] }}"
-        image: "job-frontend:{{ output_commits.after[:7] }}"
-        ports: "3030:3030"
+        name: '{{ output_commits.after[:7] }}'
+        image: 'job-frontend:{{ output_commits.after[:7] }}'
+        ports: '3030:3030'
     - name: Restart nginx
       become: true
       service:
@@ -49,7 +49,7 @@
       ignore_errors: yes
       docker_image:
         name: job-frontend
-        tag: "{{ output_commits.after[:7] }}"
+        tag: '{{ output_commits.after[:7] }}'
         state: absent
     - name: prune dangling images
       become: true
