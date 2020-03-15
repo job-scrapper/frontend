@@ -1,22 +1,26 @@
 name: Build and Test
 
-on: push
+on: [push]
 
 jobs:
   # https://github.com/marketplace/actions/github-action-for-yarn
   build_and_test:
     name: Build and Test
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
     steps:
-      - uses: actions/checkout@v1
-      - uses: borales/actions-yarn@v2.0.0
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          cmd: install
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: prod
-      - uses: borales/actions-yarn@v2.0.0
+          node-version: ${{ matrix.node-version }}
+      - name: Install Dependencies
+        run: yarn install
+      - name: Run Build
+        run: yarn prod
+      - name: Run test
+        run: yarn test
         env:
           CI: true
-        with:
-          cmd: test
