@@ -10,7 +10,8 @@
     "eslint": "eslint --fix",
     "workbox": "workbox generateSW workbox-config.js",
     "prod": "npm-run-all build workbox",
-    "server": "pm2 serve build 3030 --no-daemon --spa"
+    "server": "pm2 serve build 3030 --no-daemon --spa",
+    "deploy": "ansible-playbook ansible/deploy.yml"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
