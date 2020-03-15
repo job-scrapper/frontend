@@ -6,7 +6,7 @@ import Home from '../pages/home';
 function Routes(): JSX.Element {
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      <Route path="/" exact component={Home} />
     </Switch>
   );
 }

@@ -2,15 +2,19 @@ import 'normalize.css';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Auth0Provider } from './router/auth0Context';
+import history from './router/history';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Auth0Provider>
+    <Router history={history}>
+      <App />
+    </Router>
+  </Auth0Provider>,
   document.getElementById('root'),
 );
 
