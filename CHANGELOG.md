@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.3.0 2020-03-15
+
+- Dockerfile 생성, pm2를 이용해 정적 파일 serving
+- Ansible playbook 생성해 somethingmore로 자동 배포 구현
+
 ## 0.2.0 2020-03-14
 
 - eslint, prettier 설정
