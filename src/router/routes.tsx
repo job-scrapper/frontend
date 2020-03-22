@@ -1,12 +1,13 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 import Home from '../pages/home';
+import PrivateRoute from './privateRoute';
 
 function Routes(): JSX.Element {
   return (
     <Switch>
-      <Route path="/" exact component={Home} />
+      <PrivateRoute path="/" component={Home} />
     </Switch>
   );
 }
