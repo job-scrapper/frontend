@@ -34,6 +34,7 @@
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.6.4",
     "@blueprintjs/core": "^3.24.0",
+    "@blueprintjs/icons": "^3.14.0",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@testing-library/jest-dom": "^4.2.4",
