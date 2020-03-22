@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.4.0 2020-03-22
+
+- Auth0에 연결해 인증 시스템 생성
+- 테스트 환경 및 배포 자동화 라인 구축
+- blueprint.js, emotion.js를 통한 css 구성
+
 ## 0.3.0 2020-03-15
 
 - Dockerfile 생성, pm2를 이용해 정적 파일 serving
