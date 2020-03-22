@@ -6,10 +6,12 @@ import { Auth0Context } from './auth0Context';
 const PrivateRoute = ({
   component: Component,
   path,
+  exact = false,
   ...rest
 }: {
   component: React.ComponentType<RouteProps>;
   path: string;
+  exact: boolean;
 }): JSX.Element => {
   const { loading, isAuthenticated, auth0Client } = useContext(Auth0Context);
 
@@ -29,6 +31,7 @@ const PrivateRoute = ({
   return (
     <Route
       path={path}
+      exact={exact}
       render={props => (isAuthenticated === true ? <Component {...props} /> : null)}
       {...rest}
     />
