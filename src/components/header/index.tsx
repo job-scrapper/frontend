@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { Navbar, Alignment, Button } from '@blueprintjs/core';
+import { Navbar, Alignment, Button, Colors } from '@blueprintjs/core';
+import { Link } from 'react-router-dom';
 
 import { Auth0Context } from '../../router/auth0Context';
 import { Flexbox, Email, Profile } from './styled';
@@ -17,7 +18,11 @@ function Header(): JSX.Element {
   return (
     <Navbar data-testid="header" className="bp3-dark">
       <Navbar.Group align={Alignment.LEFT}>
-        <Navbar.Heading>Scrapper</Navbar.Heading>
+        <Navbar.Heading>
+          <Link to="/" style={{ color: Colors.WHITE, textDecoration: 'none' }}>
+            Scrapper
+          </Link>
+        </Navbar.Heading>
       </Navbar.Group>
       <Navbar.Group align={Alignment.RIGHT}>
         {isAuthenticated ? (
