@@ -49,7 +49,7 @@
       ignore_errors: yes
       docker_image:
         name: job-frontend
-        tag: '{{ output_commits.after[:7] }}'
+        tag: '{{ output_commits.before[:7] }}'
         state: absent
     - name: prune dangling images
       become: true
