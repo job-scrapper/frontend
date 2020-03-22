@@ -12,19 +12,19 @@ function onRedirectCallback(appState?: { targetUrl: string }): void {
 
 export const Auth0Context = React.createContext<{
   isAuthenticated: boolean;
-  user: any;
+  user: { name: string; picture: string };
   loading: boolean;
   auth0Client: Auth0Client | undefined;
 }>({
   isAuthenticated: false,
-  user: undefined,
+  user: { name: '', picture: '' },
   loading: true,
   auth0Client: undefined,
 });
 
 export const Auth0Provider: React.FC = ({ children }: { children?: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({ name: '', picture: '' });
   const [auth0Client, setAuth0] = useState<Auth0Client | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
 

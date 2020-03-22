@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { Navbar, Alignment, Button } from '@blueprintjs/core';
 
 import { Auth0Context } from '../../router/auth0Context';
+import { Flexbox, Email, Profile } from './styled';
 
 function Header(): JSX.Element {
-  const { auth0Client } = useContext(Auth0Context);
+  const { auth0Client, user, isAuthenticated } = useContext(Auth0Context);
 
   function logout(): void {
     if (auth0Client) {
@@ -17,6 +18,14 @@ function Header(): JSX.Element {
     <Navbar data-testid="header" className="bp3-dark">
       <Navbar.Group align={Alignment.LEFT}>
         <Navbar.Heading>Scrapper</Navbar.Heading>
+      </Navbar.Group>
+      <Navbar.Group align={Alignment.RIGHT}>
+        {isAuthenticated ? (
+          <Flexbox>
+            <Email>{user.name}</Email>
+            <Profile src={user.picture} alt="profile" />
+          </Flexbox>
+        ) : null}
         <Navbar.Divider />
         <Button text="로그아웃" onClick={logout} />
       </Navbar.Group>
