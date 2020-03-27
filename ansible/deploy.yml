@@ -16,10 +16,10 @@
     - name: Display commit info
       debug:
         var: output_commits
-    - name: Write dotenv
-      shell: |
-        echo 'GENERATE_SOURCEMAP=false
-        INLINE_RUNTIME_CHUNK=false' > /home/some/job-scrapper/frontend/.env
+    - name: Copy dotenv
+      copy:
+        src: ../.env
+        dest: /home/some/job-scrapper/frontend/.env
     - name: build new image
       become: true
       docker_image:

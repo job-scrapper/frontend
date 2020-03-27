@@ -7,7 +7,6 @@ import history from './history';
 
 function onRedirectCallback(appState?: { targetUrl: string }): void {
   const path = appState && appState.targetUrl ? appState.targetUrl : window.location.pathname;
-  alert(path);
   history.push(path);
 }
 
@@ -42,7 +41,6 @@ export const Auth0Provider: React.FC = ({ children }: { children?: React.ReactNo
 
       if (window.location.search.includes('code=') && window.location.search.includes('state=')) {
         const { appState }: RedirectLoginResult = await auth0FromHook.handleRedirectCallback();
-        alert(JSON.stringify(appState));
         onRedirectCallback(appState);
       }
 
