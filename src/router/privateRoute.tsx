@@ -25,6 +25,7 @@ const PrivateRoute = ({
         await auth0Client.loginWithRedirect({ redirect_uri: `${window.location.origin}${path}` });
       }
     };
+    alert(`${window.location.origin}${path}`);
     fn();
   }, [loading, isAuthenticated, auth0Client, path]);
 
