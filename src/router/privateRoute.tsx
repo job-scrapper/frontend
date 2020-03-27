@@ -21,11 +21,11 @@ const PrivateRoute = ({
     }
     const fn = async (): Promise<void> => {
       if (auth0Client) {
+        alert(`${window.location.origin}${path}`);
         // eslint-disable-next-line @typescript-eslint/camelcase
         await auth0Client.loginWithRedirect({ redirect_uri: `${window.location.origin}${path}` });
       }
     };
-    alert(`${window.location.origin}${path}`);
     fn();
   }, [loading, isAuthenticated, auth0Client, path]);
 
